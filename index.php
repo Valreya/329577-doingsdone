@@ -114,7 +114,7 @@ $days_until_deadline = null;
                     </label>
                 </div>
 
-                <table class="tasks task--important" <?php if ( $show_complete_tasks == 1) echo 'checked="checked"'; ?> >
+                <table class="tasks task--important">
 <!--                    Добавьте класс task--important, если до выполнения задачи меньше дня-->
                     <tr class="tasks__item task">
                         <td class="task__select">
@@ -131,7 +131,7 @@ $days_until_deadline = null;
                     </tr>
 
                     <!--показывать следующий тег <tr/>, если переменная равна единице-->
-                    <tr class="tasks__item task task--completed">
+                    <?php if ( $show_complete_tasks == 1) echo '<tr class="tasks__item task task--completed">
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden" type="checkbox" checked>
@@ -145,7 +145,7 @@ $days_until_deadline = null;
                         </td>
 
                         <td class="task__date"><!--выведите здесь дату выполнения задачи--></td>
-                    </tr>
+                    </tr>'; ?>
                 </table>
             </main>
         </div>
