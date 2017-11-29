@@ -10,10 +10,10 @@ $task_deadline_ts = strtotime("+" . $days . " day midnight"); // метка вр
 $current_ts = strtotime('now midnight'); // текущая метка времени
 
 // запишите сюда дату выполнения задачи в формате дд.мм.гггг
-$date_deadline = date("d.m.Y", $current_ts + $task_deadline_ts);
+$date_deadline = date("d.m.Y", $task_deadline_ts);
 
 // в эту переменную запишите кол-во дней до даты задачи
-$days_until_deadline = date("d.m.Y", $date_deadline - $current_ts);
+$days_until_deadline = floor(($date_deadline - $current_ts) / (60 * 60 * 24));
 ?>
 <!DOCTYPE html>
 <html lang="ru">
