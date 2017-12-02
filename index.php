@@ -13,7 +13,7 @@ $current_ts = strtotime('now midnight'); // текущая метка време
 $date_deadline = date("d.m.Y", $task_deadline_ts);
 
 // в эту переменную запишите кол-во дней до даты задачи
-$days_until_deadline = floor(($date_deadline - $current_ts) / (60 * 60 * 24));
+$days_until_deadline = floor(($task_deadline_ts - $current_ts) / (60 * 60 * 24));
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -116,7 +116,7 @@ $days_until_deadline = floor(($date_deadline - $current_ts) / (60 * 60 * 24));
 
                 <table class="tasks">
 <!--                    Добавьте класс task--important, если до выполнения задачи меньше дня-->
-                    <tr class="tasks__item task" <?php if ( $days_until_deadline <= 1) echo 'class="task--important"'; ?> >
+                    <tr class="tasks__item task <?php if ( $days_until_deadline <= 1) echo 'task--important'; ?>" >
                         <td class="task__select">
                             <label class="checkbox task__checkbox">
                                 <input class="checkbox__input visually-hidden" type="checkbox">
@@ -127,7 +127,7 @@ $days_until_deadline = floor(($date_deadline - $current_ts) / (60 * 60 * 24));
                         <td class="task__file">
                         </td>
 
-                        <td class="task__date"><?php echo ($days_until_deadline); ?></td>
+                        <td class="task__date"><?php echo ($date_deadline); ?></td>
                     </tr>
 
                     <!--показывать следующий тег <tr/>, если переменная равна единице-->
