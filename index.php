@@ -60,7 +60,7 @@ $days_until_deadline = floor(($task_deadline_ts - $current_ts) / (60 * 60 * 24))
                     <ul class="main-navigation__list">
                         <li class="main-navigation__list-item">
                             <a class="main-navigation__list-item-link" href="#">Входящие</a>
-                            <span class="main-navigation__list-item-count"><?php function () {} ?>24</span>
+                            <span class="main-navigation__list-item-count"><?php function calculate($table, $category) {count($category) return} ?>24</span>
                         </li>
 
                         <li class="main-navigation__list-item main-navigation__list-item--active">
