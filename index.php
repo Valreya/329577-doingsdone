@@ -62,33 +62,31 @@ $days_until_deadline = floor(($task_deadline_ts - $current_ts) / (60 * 60 * 24))
                     $num = count($project);
                     while ($index < $num) {
                         $cat = $project[$index];
-                        print ('<a href="#">' . $cat . '</a>');
-                        print ("<br>");
                         $index = $index + 1;
                     } ?>
                     <ul class="main-navigation__list">
                         <li class="main-navigation__list-item main-navigation__list-item--active">
-                            <a class="main-navigation__list-item-link" href="#">Входящие</a>
+                            <a class="main-navigation__list-item-link" href="#"><?php print($project[1]); ?></a>
                             <span class="main-navigation__list-item-count">24</span>
                         </li>
 
-                        <li class="main-navigation__list-item main-navigation__list-item--active">
-                            <a class="main-navigation__list-item-link" href="#">Работа</a>
+                        <li class="main-navigation__list-item">
+                            <a class="main-navigation__list-item-link" href="#"><?php print($project[2]); ?></a>
                             <span class="main-navigation__list-item-count">12</span>
                         </li>
 
                         <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#">Здоровье</a>
+                            <a class="main-navigation__list-item-link" href="#"><?php print($project[3]); ?></a>
                             <span class="main-navigation__list-item-count">3</span>
                         </li>
 
                         <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#">Домашние дела</a>
+                            <a class="main-navigation__list-item-link" href="#"><?php print($project[4]); ?></a>
                             <span class="main-navigation__list-item-count">7</span>
                         </li>
 
                         <li class="main-navigation__list-item">
-                            <a class="main-navigation__list-item-link" href="#">Авто</a>
+                            <a class="main-navigation__list-item-link" href="#"><?php print($project[5]); ?></a>
                             <span class="main-navigation__list-item-count">0</span>
                         </li>
                     </ul>
