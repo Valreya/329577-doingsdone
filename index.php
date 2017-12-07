@@ -14,6 +14,7 @@ $date_deadline = date("d.m.Y", $task_deadline_ts);
 
 // в эту переменную запишите кол-во дней до даты задачи
 $days_until_deadline = floor(($task_deadline_ts - $current_ts) / (60 * 60 * 24));
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -55,10 +56,18 @@ $days_until_deadline = floor(($task_deadline_ts - $current_ts) / (60 * 60 * 24))
         <div class="content">
             <section class="content__side">
                 <h2 class="content__side-heading">Проекты</h2>
-
+                <?php $project = ["Все", "Входящие", "Учеба", "Работа", "Домашние дела", "Авто"]; ?>
                 <nav class="main-navigation">
+                    <?php $index =0;
+                    $num = count($project);
+                    while ($index < $num) {
+                        $cat = $project[$index];
+                        print ('<a href="#">' . $cat . '</a>');
+                        print ("<br>");
+                        $index = $index + 1;
+                    } ?>
                     <ul class="main-navigation__list">
-                        <li class="main-navigation__list-item">
+                        <li class="main-navigation__list-item main-navigation__list-item--active">
                             <a class="main-navigation__list-item-link" href="#">Входящие</a>
                             <span class="main-navigation__list-item-count">24</span>
                         </li>
@@ -113,7 +122,59 @@ $days_until_deadline = floor(($task_deadline_ts - $current_ts) / (60 * 60 * 24))
                         </a>
                     </label>
                 </div>
+                <?php
+                $table = [
+                    [
+                        'goal' => 'Задача',
+                        'date' => 'Дата выполнения',
+                        'category' => 'Категория',
+                        'done' => 'Выполнен'
+                    ],
 
+                    [
+                        'goal' => 'Собеседование в IT компании',
+                        'date' => '01.06.2018',
+                        'category' => 'Работа',
+                        'done' => 'Нет'
+                    ],
+
+                    [
+                        'goal' => 'Выполнить тестовое задание',
+                        'date' => '25.05.2018',
+                        'category' => 'Работа',
+                        'done' => 'Нет'
+                    ],
+
+                    [
+                        'goal' => 'Сделать задание первого раздела',
+                        'date' => '21.04.2018',
+                        'category' => 'Учеба',
+                        'done' => 'Да'
+                    ],
+
+                    [
+                        'goal' => 'Встреча с другом',
+                        'date' => '22.04.2018',
+                        'category' => 'Входящие',
+                        'done' => 'Нет'
+                    ],
+
+                    [
+                        'goal' => 'Купить корм для кота',
+                        'date' => 'Нет',
+                        'category' => 'Домашние дела',
+                        'done' => 'Нет'
+                    ],
+
+                    [
+                        'goal' => 'Заказать пиццу',
+                        'date' => 'Нет',
+                        'category' => 'Домашние дела',
+                        'done' => 'Нет'
+                    ]
+                ]
+                ?>
+                <?php foreach ($table as $value) {echo $table . "<br />";} ?>
                 <table class="tasks">
 <!--                    Добавьте класс task--important, если до выполнения задачи меньше дня-->
                     <tr class="tasks__item task <?php if ( $days_until_deadline <= 1) echo 'task--important'; ?>" >
